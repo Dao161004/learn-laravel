@@ -7,5 +7,19 @@
 </head>
 <body>
     <h1>Add New Product</h1>
+    <form>
+        <div>
+            <label for="product_name">Product Name:</label>
+            <input type="text" id="product_name" name="product_name" required>
+        </div>
+        <div>
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" required>
+        </div>
+        <div>
+            <button type="submit">Add Product</button>
+        </div>
+    </form>
+    <p><a href="/product">Back to Product List</a></p>
 </body>
 </html>
