@@ -19,15 +19,15 @@ class AgeCheckingAccess
         if (str_starts_with($request->path(), 'auth/age')) {
             // Xử lý POST từ form verify tuổi
             if ($request->path() === 'auth/age/check' && $request->isMethod('post')) {
-                $age = (int)$request->input('age');
+                $age = $request->input('age');
 
-                // Kiểm tra nếu tuổi dưới 18
-                if ($age < 18) {
-                    return redirect('/auth/age/verify')->withErrors('Bạn phải đủ 18 tuổi');
+                // Kiểm tra xem age có phải là số hay không và >= 18 không
+                if (!is_numeric($age) || (int)$age < 18) {
+                    return response('Không được phép truy cập', 403);
                 }
 
                 // Lưu tuổi vào session
-                session(['age' => $age]);
+                session(['age' => (int)$age]);
                 return redirect('/');
             }
 

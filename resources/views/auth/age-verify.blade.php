@@ -23,7 +23,7 @@
         @csrf
         <div>
             <label for="age">Nhập tuổi của bạn:</label>
-            <input type="number" id="age" name="age" required>
+            <input type="text" id="age" name="age" required>
         </div>
         <button type="submit">Xác nhận</button>
     </form>

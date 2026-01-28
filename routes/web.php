@@ -56,9 +56,5 @@ Route::prefix('auth')->name('auth.')->group(function () {
     Route::get('/age/verify', function () {
         return view('auth.age-verify');
     });
-    
-    Route::post('/age/check', function () {
-
-        return redirect('/')->with('success', 'Xác nhận tuổi thành công!');
-    });
+    Route::post('/age/check');
 });
