@@ -6,31 +6,23 @@
     <title>product list</title>
 </head>
 <body>
-    <h1>Product List</h1>
-    <p><a href="{{ route('product.add') }}">Thêm mới sản phẩm</a></p>
-    <table border="1">
+    <h1>{{ $title }}</h1>
+    <table border="1" cellpadding="5" cellspacing="0">
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Action</th>
+            <td>id</td>
+            <td>name</td>
+            <td>price</td>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>Sample Product 1</td> 
-            <td>1000đ</td>
-            <td>
-                <a href="{{ route('product.detail', ['id' => 1]) }}">Detail</a>
-            </td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Sample Product 2</td> 
-            <td>2000đ</td>
-            <td>
-                <a href="{{ route('product.detail', ['id' => 2]) }}">Detail</a>
-            </td>
-        </tr>
+        @foreach ($products as $product)
+            <tr>
+                <td>{{ $product['id'] }}</td>
+                <td>{{ $product['name'] }}</td>
+                <td>{{ $product['price'] }}</td>
+            </tr>
+        @endforeach
     </table>
+    <button style="margin: 10px">
+        <a href="{{ route('product.add') }}">Add new product</a>
+    </button>
 </body>
 </html>
