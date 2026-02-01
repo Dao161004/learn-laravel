@@ -31,17 +31,17 @@ class AuthController extends Controller
     public function checkSignIn(Request $request)
     {
         $username = $request->input('username');
-        $password = $request->input('password');
+        $pass = $request->input('pass');
         $repass = $request->input('repass');
         $mssv = $request->input('mssv');
         $lopmonhoc = $request->input('lopmonhoc');
         $gioitinh = $request->input('gioitinh');
 
-        if ($password !== $repass) {
+        if ($pass !== $repass) {
             return "Đăng ký thất bại";
         }
 
-        if ($username == 'Hieulx' && $password == '123abc' && $mssv == '26867' && $lopmonhoc == '67PM1' && $gioitinh == 'nam') {
+        if ($username == 'NguyenVanDao' && $pass == '123456' && $mssv == '0003967' && $lopmonhoc == '67PM2' && $gioitinh == 'nam') {
             return "Đăng ký thành công!";
         } else {
             return "Đăng ký thất bại";

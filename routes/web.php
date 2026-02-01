@@ -34,6 +34,8 @@ Route::prefix('product')->group(function () {
         Route::get('/add', "create")->name('product.add');
         Route::get('/detail/{id?}', "getdetail");
         Route::post('/store', "store");
+        Route::get("editView/{id}","editView");
+        Route::put("edit/{id}","edit");
     });
 });
 

@@ -12,12 +12,18 @@
             <td>id</td>
             <td>name</td>
             <td>price</td>
+            <td>stock</td>
+            <td>action</td>
         </tr>
         @foreach ($products as $product)
             <tr>
                 <td>{{ $product['id'] }}</td>
                 <td>{{ $product['name'] }}</td>
                 <td>{{ $product['price'] }}</td>
+                <td>{{ $product['stock'] }}</td>
+                <td>
+                    <a href="/product/editView/{{ $product['id'] }}">Edit</a>
+                </td>
             </tr>
         @endforeach
     </table>
