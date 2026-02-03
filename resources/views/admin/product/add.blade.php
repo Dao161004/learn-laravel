@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>add product</title>
-</head>
-<body>
+@extends('layout.admin')
+@section('content')
     <h1>Add New Product</h1>
     <form method="POST" action="/product/store">
         @csrf
@@ -25,6 +19,4 @@
             <button type="submit">Add Product</button>
         </div>
     </form>
-    <p><a href="/product">Back to Product List</a></p>
-</body>
-</html>
+@endsection

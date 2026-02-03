@@ -34,7 +34,7 @@ Route::prefix('product')->group(function () {
         Route::get('/add', "create")->name('product.add');
         Route::get('/detail/{id?}', "getdetail");
         Route::post('/store', "store");
-        Route::get("editView/{id}","editView");
+        Route::get("editView/{id}","editView")->name('product.editView');
         Route::put("edit/{id}","edit");
     });
 });
@@ -48,10 +48,10 @@ Route::fallback(function () {
 //Auth routes
 Route::prefix('auth')->name('auth.')->group(function () {
     Route::controller(AuthController::class)->group(function () {
-        Route::get('/signin', 'signin');
+        Route::get('/signin', 'signin')->name('signin');
         Route::post('/checkSignIn', 'checkSignIn');
         Route::get('/login', 'login')->middleware(CheckTimeAccess::class);
-        Route::post('/checkLogin', 'checkLogin');
+        Route::post('/checkLogin', 'checkLogin')->name('checkLogin');
     });
     
     // Age verification routes
@@ -59,4 +59,8 @@ Route::prefix('auth')->name('auth.')->group(function () {
         return view('auth.age-verify');
     });
     Route::post('/age/check');
+});
+
+Route::get('/layout/admin', function () {
+    return view('layout.admin');
 });

@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit product</title>
-</head>
-<body>
+@extends('layout.admin')
+@section('content')
     <h1>Edit Product</h1>
     <form method="POST" action="/product/edit/{{ $product->id }}">
         @method('PUT')
@@ -27,5 +21,4 @@
         </div>
     </form>
     <p><a href="/product">Back to Product List</a></p>
-</body>
-</html>
+@endsection
