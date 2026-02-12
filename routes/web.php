@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Testcontroller;
 use App\Http\Middleware\CheckTimeAccess;
+use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
     return view('home');
@@ -36,6 +37,19 @@ Route::prefix('product')->group(function () {
         Route::post('/store', "store");
         Route::get("editView/{id}","editView")->name('product.editView');
         Route::put("edit/{id}","edit");
+    });
+});
+
+//Category routes
+Route::prefix('category')->group(function () {
+    Route::controller(CategoryController::class)->group(function () {
+        Route::get('/', "index")->name('category.index');
+        Route::get('/add', "create")->name('category.add');
+        Route::get('/detail/{id?}', "getdetail");
+        Route::post('/store', "store");
+        Route::get("edit/{id}","edit")->name('category.edit');
+        Route::put("update/{id}","update")->name('category.update');
+        Route::delete("delete/{id}","destroy")->name('category.destroy');
     });
 });
 
