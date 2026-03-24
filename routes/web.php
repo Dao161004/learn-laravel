@@ -29,15 +29,13 @@ Route::get('/banco/{n}', function (int $n) {
 })->name('banco');
 
 //Product routes
-Route::prefix('product')->group(function () {
-    Route::controller(ProductController::class)->group(function () {
-        Route::get('/', "index");
-        Route::get('/add', "create")->name('product.add');
-        Route::get('/detail/{id?}', "getdetail");
-        Route::post('/store', "store");
-        Route::get("editView/{id}","editView")->name('product.editView');
-        Route::put("edit/{id}","edit");
-    });
+Route::prefix('product')->name('product.')->controller(ProductController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/', 'store')->name('store');
+    Route::get('/{product}/edit', 'edit')->name('edit');
+    Route::put('/{product}', 'update')->name('update');
+    Route::delete('/{product}', 'destroy')->name('destroy');
 });
 
 //Category routes
